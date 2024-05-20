@@ -53,7 +53,6 @@ export const ApiController = (function(){
     };
 
     const _modifyProduct = async (id: string | string[], newProduct: Product): Promise<Product> => {
-        try {
             const response = await fetch(`https://dummyjson.com/products/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -66,11 +65,6 @@ export const ApiController = (function(){
     
             const data = await response.json();
             return data;
-        } catch (error) {
-            // Manejar errores de forma apropiada, por ejemplo, enviar a un servicio de registro de errores
-            console.error('Error modifying product:', error);
-            throw error; // Re-lanzar el error para que el componente que llama pueda manejarlo
-        }
     };
 
     return{

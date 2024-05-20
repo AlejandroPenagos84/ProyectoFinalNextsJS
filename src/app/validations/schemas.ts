@@ -5,7 +5,7 @@ export const productSchema = z.object({
   brand: z.string().min(1, "La marca es obligatoria"),
   category: z.string().min(1, "La categoría es obligatoria"),
   description: z.string().min(1, "La descripción es obligatoria"),
-  discount: z
+  discountPercentage: z
     .string()
     .regex(/^\d+(\.\d{1,2})?$/, "El descuento debe ser un número válido"),
   price: z

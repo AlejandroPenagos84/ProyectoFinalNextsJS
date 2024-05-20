@@ -1,4 +1,5 @@
 import { Product } from "@/app/services/Interfaces/Product";
+import { useParams } from "next/navigation";
 interface ProductInfoProps {
   singleProduct: Product | null | undefined;
   deleteProduct: any;
@@ -15,6 +16,8 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
   if (!singleProduct || singleProduct===undefined) {
     return null; // Si es nulo, no renderiza nada
   }
+  const params = useParams();
+  const { id_product } = params;
 
   console.log(singleProduct);
   return (
@@ -77,7 +80,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
 
           <button
             className="mt-4 px-4 py-2 bg-red-500 text-white rounded"
-            onClick={async () => {setSingleProduct(await deleteProduct(singleProduct.id))
+            onClick={async () => {setSingleProduct(await deleteProduct(id_product))
             }}
           >
             Eliminar
